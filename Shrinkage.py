@@ -21,7 +21,6 @@ IFE Term Project - 포트폴리오 백테스트 스크립트
     CRSP sprtrn(S&P500 월간 수익률) 필드를 직접 사용할 것을 권장.
 """
 
-import os
 import numpy as np
 import pandas as pd
 import matplotlib
@@ -38,8 +37,7 @@ np.random.seed(42)
 # ------------------------------------------------------------------
 # 0. 파라미터 설정
 # ------------------------------------------------------------------
-_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_PATH = os.path.join(_DIR, "IFE_term_stock_data.csv")
+DATA_PATH = "IFE_term_stock_data.csv"   # 원본 CRSP 월간 데이터
 MIN_PRICE = 5.0            # 페니스톡 제외 기준 (ADJ_PRC >= $5)
 VOL_PCTL_CUTOFF = 0.20     # 유동성 하위 20% 종목 제외 (VOL 기준)
 TOP_N = 50                 # 모멘텀 상위 N개 종목 선정
@@ -409,7 +407,7 @@ metrics_table = metrics_table[["Cumulative Return", "Annualized Return", "Annual
 
 print("\n=== 성과지표 요약 ===")
 print(metrics_table.round(4))
-metrics_table.round(4).to_csv(os.path.join(_DIR, "backtest_metrics.csv"), encoding="utf-8-sig")
+metrics_table.round(4).to_csv("backtest_metrics.csv", encoding="utf-8-sig")
 
 # ------------------------------------------------------------------
 # 9. 포트폴리오 가치(누적수익률) 그래프
@@ -424,7 +422,7 @@ ax.set_ylabel("Portfolio Value ($)")
 ax.legend(loc="upper left", fontsize=9)
 ax.grid(alpha=0.3)
 plt.tight_layout()
-plt.savefig(os.path.join(_DIR, "portfolio_value.png"), dpi=140)
+plt.savefig("portfolio_value.png", dpi=140)
 plt.close()
 
 # Drawdown 그래프 (전략 본체 기준)
@@ -437,9 +435,9 @@ ax.set_title("Drawdown")
 ax.legend(loc="lower left", fontsize=8)
 ax.grid(alpha=0.3)
 plt.tight_layout()
-plt.savefig(os.path.join(_DIR, "drawdown.png"), dpi=140)
+plt.savefig("drawdown.png", dpi=140)
 plt.close()
 
-bt.to_csv(os.path.join(_DIR, "backtest_monthly_returns.csv"), encoding="utf-8-sig")
+bt.to_csv("backtest_monthly_returns.csv", encoding="utf-8-sig")
 print("\n완료: backtest_metrics.csv, backtest_monthly_returns.csv, "
       "portfolio_value.png, drawdown.png 저장됨.")
