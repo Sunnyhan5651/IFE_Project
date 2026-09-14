@@ -1,0 +1,6 @@
+﻿,Cumulative Return,Annualized Return,Annualized Std,Sharpe Ratio,Max Drawdown
+"Cluster v2 (잔차+동적K, [C23+K24])",5.2692,0.1079,0.1297,0.8315,-0.4856
+"Cluster v1 (원시+K=10, [K24])",4.4778,0.0996,0.1421,0.7007,-0.5521
+Naive GMVP-LW,2.1225,0.0656,0.1406,0.4668,-0.5345
+EW Market,4.2916,0.0975,0.1985,0.491,-0.5719
+S&P500 (approx.),5.0265,0.1054,0.047,2.2417,-0.37
