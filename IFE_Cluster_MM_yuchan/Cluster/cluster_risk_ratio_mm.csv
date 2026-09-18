@@ -1,0 +1,4 @@
+﻿,Mean Predicted Vol (Ann.),Realized Vol (Ann.),Risk Ratio (pred/real),Ratio Bias (|1 - ratio|)
+Cluster v2 (잔차+동적K),0.0928,0.1297,0.7156,0.2844
+Cluster v1 (원시+K=10),0.0963,0.1421,0.6775,0.3225
+Naive GMVP-LW,0.0316,0.1406,0.2251,0.7749
